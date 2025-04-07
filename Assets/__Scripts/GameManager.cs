@@ -201,7 +201,7 @@ public class GameManager : MonoBehaviour
             {
                 invaderType++;
             }
-            for (int x = 0; x < 10; x++)
+            for (int x = 0; x < 7; x++)
             {
                 info.invaders++;
                 var invader = invaderPool.InvaderGet(InvaderPool.Instance.invaderDatas[invaderType].prefab);

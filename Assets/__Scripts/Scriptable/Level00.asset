@@ -15,9 +15,9 @@ MonoBehaviour:
   tickInitial: 0.6
   tickFastest: 0.01
   startPosX: -8
-  startPosY: 6
-  screenEdge: 16.5
-  descentSteps: 2
+  startPosY: 8
+  screenEdge: 10
+  descentSteps: 1
   invaderShootInterval:
-  - 0.5
-  - 2
+  - 0.1
+  - 1
