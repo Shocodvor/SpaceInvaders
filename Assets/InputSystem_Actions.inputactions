@@ -121,6 +121,17 @@
                     "action": "AnyKey",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "925e0031-f608-4966-b758-af51a9d1e2d8",
+                    "path": "<Touchscreen>/Press",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard&Mouse;Gamepad;Touch;XR;Joystick",
+                    "action": "AnyKey",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         }

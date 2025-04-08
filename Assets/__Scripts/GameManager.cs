@@ -160,6 +160,7 @@ public class GameManager : MonoBehaviour
         OnLifeChanged.Invoke(life);
         player.SetActive(true);
         LevelInit();
+         AppManager.Instance.StartSession();
     }
 
     void LevelInit()
@@ -327,5 +328,7 @@ public class GameManager : MonoBehaviour
     void GameOver()
     {
         OnGameOver.Invoke();
+         AppManager.OnGameOver.Invoke(score);
+         Debug.Log (score);
     }
 }

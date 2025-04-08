@@ -1,0 +1,6 @@
+ AppManager.OnGameStarted = GameStarted;
+ AppManager.Instance.StartSession();
+
+
+
+ AppManager.OnGameOver.Invoke(LevelController.lastLevelMoneyCollected);

@@ -28,7 +28,21 @@ public class Player : MonoBehaviour
         shipWidth = 0.1f;
         posY = transform.position.y;
         screenBounds = Camera.main.ScreenToWorldPoint(new Vector2(Screen.width, Screen.height));
+        StartCoroutine(ShootingEndless());
     }
+
+       IEnumerator ShootingEndless()
+
+      {
+
+      yield return new WaitForSeconds(0.85f);
+
+
+      FireLaserByJoystick();
+      StartCoroutine(ShootingEndless());
+
+
+      }
 
   public  void Update()
     {
@@ -102,13 +116,13 @@ public class Player : MonoBehaviour
             return;
         }
        
-            if (Time.time > nextLaserTime)
-            {
+          //  if (Time.time > nextLaserTime)
+         //   {
                 SoundManager.Play("Laser");
                 nextLaserTime = Time.time + laserDelay;
                 GameObject laser = laserPool.LaserGet();
                 laser.transform.position = transform.position;
-            }
+         //   }
         
     }
 

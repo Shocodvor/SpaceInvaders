@@ -34,6 +34,8 @@ public class UIManager : MonoBehaviour, IScoreObserver
     float posY;
      public Player _player;
 
+     public GameObject Startbut;
+
 
     
 
@@ -123,6 +125,12 @@ public class UIManager : MonoBehaviour, IScoreObserver
         }
         yield return new WaitForSeconds(2.5f);
         yield return StartCoroutine(WaitAnyKey());
+    }
+
+    public void Starting ()
+    {
+       StartCoroutine(WaitAnyKey());
+       Startbut.SetActive(false); 
     }
 
     IEnumerator WaitAnyKey()
