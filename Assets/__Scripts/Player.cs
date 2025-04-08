@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using DG.Tweening;
 
 public class Player : MonoBehaviour
 {
@@ -20,22 +21,24 @@ public class Player : MonoBehaviour
 
     public static Action OnShipDestoried;
 
-    void Start()
+  public  void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponentInChildren<Animator>();
-        shipWidth = GetComponent<Collider2D>().bounds.extents.x;
+        shipWidth = 0.1f;
         posY = transform.position.y;
         screenBounds = Camera.main.ScreenToWorldPoint(new Vector2(Screen.width, Screen.height));
     }
 
-    void Update()
+  public  void Update()
     {
         ShipMove();
     }
 
-    void ShipMove()
+ public   void ShipMove()
     {
+
+        
         if (isShipDestroied)
         {
             rb.linearVelocityX = 0;
@@ -52,11 +55,18 @@ public class Player : MonoBehaviour
         {
             moveTo(new Vector2(screenBounds.x - shipWidth, posY));
         }
+
+
+
     }
 
-    void moveTo(Vector2 pos)
+
+   
+  public  void moveTo(Vector2 pos)
     {
         transform.position = pos;
+
+     
     }
 
     public void Move(InputAction.CallbackContext context)
@@ -67,8 +77,44 @@ public class Player : MonoBehaviour
             return;
         }
         moveX = context.ReadValue<Vector2>().x;
+
+       
         
     }
+
+        public void MoveByJoystick(float moveToX)
+    {
+        if (isShipDestroied)
+        {
+            moveX = 0;
+            return;
+        }
+        moveX = moveToX;
+
+
+        
+    }
+
+     public void FireLaserByJoystick()
+    {
+        if (isShipDestroied)
+        {
+            return;
+        }
+       
+            if (Time.time > nextLaserTime)
+            {
+                SoundManager.Play("Laser");
+                nextLaserTime = Time.time + laserDelay;
+                GameObject laser = laserPool.LaserGet();
+                laser.transform.position = transform.position;
+            }
+        
+    }
+
+   
+
+
 
     public void FireLaser(InputAction.CallbackContext context)
     {

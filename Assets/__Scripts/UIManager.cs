@@ -5,6 +5,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour, IScoreObserver
 {
@@ -24,6 +25,18 @@ public class UIManager : MonoBehaviour, IScoreObserver
     float introOrigX = -340f;
     public static UIManager Instance;
 
+               [SerializeField] private Button _shootbutton;
+        [SerializeField] private Button MoveToLeftButton;
+           [SerializeField] private Button MoveToRightButton;
+
+            float shipWidth;
+    Vector2 screenBounds;
+    float posY;
+     public Player _player;
+
+
+    
+
     void Awake()
     {
         Instance = this;
@@ -33,7 +46,51 @@ public class UIManager : MonoBehaviour, IScoreObserver
         GameManager.OnLifeChanged += OnLifeChanged;
         GameManager.OnGameOver += OnGameOver;
         pressAnyKeyMessage = rectIntro[5].GetComponent<CanvasGroup>();
+
+    
+
+       
+
+         //  shipWidth = _player.GetComponent<Collider2D>().bounds.extents.x;
+         shipWidth = 0.1f;
+        posY = transform.position.y;
+        screenBounds = Camera.main.ScreenToWorldPoint(new Vector2(Screen.width, Screen.height));
     }
+
+
+
+     
+
+
+        private void OnEnable()
+        {
+
+            _shootbutton.onClick.AddListener(Shooting);
+          //  MoveToLeftButton.onClick.AddListener(MoveLeft);
+          //  MoveToRightButton.onClick.AddListener (MoveRight);
+
+        }
+
+        public void Shooting ()
+        {
+
+
+        }
+
+        public void MoveLeft ()
+        {
+
+        
+        _player.MoveByJoystick (-0.5f);
+        }
+
+
+        public void MoveRight ()
+        {
+
+
+            _player.MoveByJoystick (0.5f);
+        }
 
     void OnDestroy()
     {

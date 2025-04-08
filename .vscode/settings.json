@@ -56,5 +56,5 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "unity-retro-game-series-01-main.sln"
+    "dotnet.defaultSolution": "SpaceInvaders.sln"
 }

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tickInitial: 0.6
   tickFastest: 0.01
-  startPosX: -8
+  startPosX: -7
   startPosY: 8
   screenEdge: 10
   descentSteps: 1
