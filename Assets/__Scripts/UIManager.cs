@@ -112,6 +112,7 @@ public class UIManager : MonoBehaviour, IScoreObserver
             intro.position = new Vector3(introOrigX, intro.position.y, 0);
         }
     }
+    
 
     IEnumerator StartIntro()
     {

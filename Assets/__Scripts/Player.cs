@@ -97,7 +97,7 @@ public class Player : MonoBehaviour
 
      public void FireLaserByJoystick()
     {
-        if (isShipDestroied)
+        if (isShipDestroied||!GameManager.isGameRunning)
         {
             return;
         }

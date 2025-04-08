@@ -114,10 +114,10 @@
                 {
                     "name": "",
                     "id": "51717eba-befa-4c00-ba1a-76cb5f6253d6",
-                    "path": "<Keyboard>/anyKey",
+                    "path": "<Mouse>/press",
                     "interactions": "",
                     "processors": "",
-                    "groups": ";Keyboard&Mouse",
+                    "groups": ";Keyboard&Mouse;Gamepad;Touch;Joystick;XR",
                     "action": "AnyKey",
                     "isComposite": false,
                     "isPartOfComposite": false
